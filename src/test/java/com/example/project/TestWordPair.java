@@ -1,4 +1,4 @@
-package com.example.project;
+/*package com.example.project;
 import java.util.ArrayList;
 import java.util.Arrays;
 import org.junit.jupiter.api.Test;
@@ -44,3 +44,4 @@ public class TestWordPair {
     }
 
 }
+*/

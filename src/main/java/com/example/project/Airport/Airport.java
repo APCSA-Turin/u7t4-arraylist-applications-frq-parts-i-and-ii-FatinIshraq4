@@ -1,5 +1,6 @@
 package com.example.project.Airport;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Airport  {
     /** A list of the flights into and out of this airport
@@ -20,7 +21,15 @@ public class Airport  {
      */
     public double getTotalRevenue() {
         /* to be implemented in part (a) */
-        return 0.0;
+        double total=0.0;
+        for (Flight fl : allFlights) {
+            if (fl.getNumPassengers()<fl.getCapacity()) {
+            total+=fl.getNumPassengers()*fl.getPrice();
+            } else {
+                total+=fl.getCapacity()*fl.getPrice();
+            }
+        }
+        return total;
     }
 
     /** Updates the list of flights by removing certain flights and
@@ -29,6 +38,30 @@ public class Airport  {
      */
     public int updateFlights() {
         /* to be implemented in part (b) */
-        return 0;
+        ArrayList<Flight> fli = new ArrayList<Flight>();
+        for (Flight fi : allFlights) {
+            fli.add(fi);
+        }
+        int total=0;
+        for (Flight fl : allFlights) {
+            int max = fl.getCapacity();
+            if (fl.getNumPassengers()*5<max) {
+                total+=fl.getNumPassengers();
+                fli.remove(fl);
+            }
+        }
+        allFlights=fli;
+        return total;
+    }
+
+    public static void main(String[] args) {
+        Flight f0 = new Flight(25, 50.00, 30);
+        Flight f1 = new Flight(10, 100.50, 60);
+        Flight f2 = new Flight(20, 100.00, 120);
+        Flight f3 = new Flight(50, 200.00, 40);
+        ArrayList<Flight> allFlights = new ArrayList<Flight>(Arrays.asList(f0, f1, f2, f3));
+        Airport capitalHub = new Airport(allFlights);
+        int passengersWithRemovedFlights = capitalHub.updateFlights();
+        System.out.println(passengersWithRemovedFlights);
     }
 }

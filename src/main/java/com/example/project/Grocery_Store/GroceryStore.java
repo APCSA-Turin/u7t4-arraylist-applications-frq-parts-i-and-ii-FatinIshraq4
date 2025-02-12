@@ -15,7 +15,13 @@ public class GroceryStore {
      *  Precondition: min > 0 */
     public ArrayList<Integer> getReorderList(int min) {
         /* to be implemented in part (a) */
-        return new ArrayList<Integer>();
+        ArrayList<Integer> restock = new ArrayList<Integer>();
+        for (int i=0; i<productsStocked.length; i++) {
+            if (productsStocked[i].getQuantity()<=min) {
+                restock.add(i);
+            }
+        }
+        return restock;
     }
 
     /** Returns true if all products named in shoppingList are available for purchase
@@ -24,7 +30,13 @@ public class GroceryStore {
      *  in the productsStocked array.
      */
     public boolean checkAvailability(ArrayList<String> shoppingList) {
-        /* to be implemented in part (b) */
-        return false;
+        for (String str : shoppingList) {
+            for (Product pd : productsStocked) {
+                if (pd.getName().equals(str)) {
+                    if (pd.getQuantity()<1) {return false;}
+                }
+            }
+        }
+        return true;
     }
 }
