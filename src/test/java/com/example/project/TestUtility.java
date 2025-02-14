@@ -1,4 +1,4 @@
-/*package com.example.project;
+package com.example.project;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -30,4 +30,3 @@ public class TestUtility {
         assertEquals(expected,Utility.sortStudents(students));
     }
 }
-*/

@@ -1,4 +1,4 @@
-/*package com.example.project;
+package com.example.project;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
@@ -40,4 +40,3 @@ public class TestWordScramble {
         assertEquals(testWordList, expectedAfterScrambleRemove);
     }
 }
-*/
